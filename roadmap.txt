@@ -1,0 +1,113 @@
+🛠 Roadmap: From Basic Agent → Pro AI Agent
+✅ Stage 1 — Starter Agent (you already did this)
+
+Chat with Ollama model (llama3.1:8b)
+
+Reads from your docs/ folder using embeddings + FAISS
+
+Clean answers printed in terminal
+
+👉 Status: Working now
+
+📌 Stage 2 — Add Memory
+
+Right now, the agent forgets your past questions. Let’s add short-term memory (conversation history).
+
+🔹 What to do:
+
+Save all past Q&A into a list (history).
+
+Pass the history back into ollama.chat().
+
+(Optional) Store in a JSON file so memory persists even after restart.
+
+📌 Stage 3 — Web Search Tool
+
+Let the agent pull fresh info from the internet if your local docs don’t cover it.
+
+🔹 Libraries to install:
+
+pip install duckduckgo-search requests beautifulsoup4 readability-lxml
+
+
+🔹 Idea:
+
+Use duckduckgo_search to get top results.
+
+Fetch the page → extract clean text with readability-lxml.
+
+Send that as context to Ollama.
+
+📌 Stage 4 — Better Document Support
+
+Support PDFs, Word files, CSVs instead of only .txt
+
+Use libraries:
+
+pypdf (for PDFs)
+
+python-docx (for Word)
+
+pandas (for CSV/Excel)
+
+Store everything in FAISS for fast retrieval.
+
+📌 Stage 5 — Long-Term Knowledge Base
+
+Instead of only re-building FAISS each time, save embeddings to disk (using faiss.write_index).
+
+This way, your AI agent can “remember” docs permanently, even across restarts.
+
+📌 Stage 6 — Add Tools
+
+Make your agent more like ChatGPT Plugins:
+
+Calculator → eval() math safely
+
+Code execution → run Python snippets
+
+File writer → save summaries or notes into notes/ folder
+
+Reminders/To-Dos
+
+📌 Stage 7 — Web App (Streamlit/Gradio)
+
+Turn your CLI agent into a web app:
+
+pip install streamlit
+
+Build a chat UI (text box + history panel)
+
+Users can upload files to add into RAG automatically
+
+📌 Stage 8 — Pro Agent (Multi-Tool + Orchestrator)
+
+By now, you’ll have:
+
+Chat + Memory + Web Search + RAG (docs) + Tools
+
+Add a decision layer:
+
+If user asks “math” → use calculator
+
+If “search” → use DuckDuckGo
+
+If “doc Q&A” → use FAISS
+
+Else → fallback to Ollama
+
+This is the foundation of a personal AI assistant.
+
+⚡️ Suggested Learning Path (for a beginner)
+
+Run the starter agent until you’re comfortable.
+
+Add memory (Stage 2).
+
+Add web search (Stage 3).
+
+Upgrade docs to PDFs/Word (Stage 4).
+
+Wrap into a Streamlit app (Stage 7).
+
+Each step is small but builds toward a powerful AI system.
